@@ -7,7 +7,7 @@
             <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
           </router-link>
           <article>
-              {{blog.body | snippet}}
+              {{blog.content | snippet}}
           </article>
       </div>
   </div>
@@ -24,7 +24,17 @@ export default {
   },
   created(){
       this.$http.get("https://vue-blog-ae37c.firebaseio.com/posts.json").then(function(data){
-            this.blogs=data.body.slice(0,10);
+            // this.blogs=data.body.slice(0,10);
+            //promise对象
+            return data.json();
+        }).then(function (data) {
+            //data为普通对象
+            var blogsArray=[];
+            for(let key in data){
+                data[key].id=key;
+                blogsArray.push(data[key]);
+            }
+            this.blogs=blogsArray;
         })
   },
   computed:{
