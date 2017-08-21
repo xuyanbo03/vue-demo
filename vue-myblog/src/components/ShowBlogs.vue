@@ -3,7 +3,7 @@
       <h1>博客总览</h1>
       <input type="text" placeholder="搜索" v-model="search">
       <div v-for="blog in filteredBlogs" class="single-blog">
-          <router-link v-bind:to="'/blog/'+blog.id">
+          <router-link v-bind:to="'/demo/vueBlog/blog/'+blog.id">
             <h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
           </router-link>
           <article>

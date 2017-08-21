@@ -4,15 +4,15 @@ import SingleBlog from './components/SingleBlog'
 
 export default [
     {
-        path:"/",
+        path:"/demo/vueBlog",
         component: ShowBlogs
     },
     {
-        path:"/add",
+        path:"/demo/vueBlog/add",
         component: AddBlog
     },
     {
-        path:"/blog/:id",
+        path:"/demo/vueBlog/blog/:id",
         component: SingleBlog
     }
 ]
